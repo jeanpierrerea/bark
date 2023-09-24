@@ -30,6 +30,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <h1>Hello world</h1>
 
+        <SignIn path ="/sign-in" routing="path" signUpUrl="/sign-up"/>
 
         {!user.isSignedIn && <SignInButton />}
         {!!user.isSignedIn && <SignOutButton />}
@@ -46,4 +47,6 @@ export default function Home() {
       </main>
     </>
   );
+
 }
+
