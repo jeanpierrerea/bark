@@ -3,7 +3,8 @@ export const LoadingScreen = () => {
 
     <div className="relative flex justify-center items-center">
         <img src="https://www.svgrepo.com/show/401417/dog-face.svg"  
-        className="rounded-full h-24 w-24 animate-spin"/>        
+        className="rounded-full h-24 w-24 animate-spin"
+        alt ="loading image"/>        
     </div>
 
     );
