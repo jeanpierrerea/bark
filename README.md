@@ -1,12 +1,18 @@
-# Create T3 App
+# Bark
+
+See it live here: [Bark](https://bark-liart.vercel.app/)
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
+## Overview
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Bark is a twitter clone with limited functionality. So far visitors are able to sign in with authentication through Discord or GitHub. Once signed in users are able to create posts!
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+My main goal was to learn how to create an app from scratch and deploy it to a production ready state. I was excited to learn a completely new tech stack, as I have limited experience with both frontend and backend development. 
+
+I learned a lot about integrating different technologies, different load states, and authentication methods. 
+
+Here are the different technologies used:
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
@@ -23,6 +29,6 @@ To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the fo
 
 You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
 
-## How do I deploy this?
+## Deployment
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Deployed with [Vercel](https://create.t3.gg/en/deployment/vercel)
