@@ -2,9 +2,9 @@ import { SignIn } from "@clerk/nextjs";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-
-
 import { api } from "~/utils/api";
+
+
 import type { RouterOutputs } from "~/utils/api";
 import { 
   SignUpButton,
@@ -20,6 +20,8 @@ import {
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { LoadingPage } from "~/components/loading";
+
 
 dayjs.extend(relativeTime);
 
@@ -67,15 +69,31 @@ const PostView = (props: PostWithUser) => {
   );
 }
 
+const Feed = () => {
+    const { data, isLoading: postsLoading } = api.posts.getAll.useQuery();
+
+    if (postsLoading) return <LoadingPage />;
+
+    if (!data) return <div>Something went wrong!!</div>;
+
+    return (
+        <div className="flex flex-col">
+          {[...data, ...data]?.map((fullPost) => (
+            <PostView {...fullPost} key={fullPost.post.id}/>
+          ))}
+        </div>
+    );
+}
+
+
 export default function Home() {
 
-  const user = useUser();
+  const {isLoaded: userLoaded, isSignedIn} = useUser();
 
-  const { data, isLoading } = api.posts.getAll.useQuery();
+  api.posts.getAll.useQuery();
 
-  if (isLoading) return <div>Loading ...</div>;
+  if (!userLoaded) return <div />;
 
-  if (!data) return <div>Something went wrong</div>;
 
   return (
     <>
@@ -88,17 +106,16 @@ export default function Home() {
         <div className="h-full w-full md:max-w-2xl border-x border-slate-400">
 
           <div className="border-b border-slate-400 p-4">
-            {!user.isSignedIn && <div className="flex justify-center"><SignInButton /> </div>}
-            {user.isSignedIn && <CreatePostWizard />}
+            {!isSignedIn && (
+              <div className="flex justify-center">
+                <SignInButton /> 
+              </div>
+            )}
+            {isSignedIn && <CreatePostWizard />}
           </div>
 
-          <div className="flex flex-col">
-            {[...data, ...data]?.map((fullPost) => (
-              <PostView {...fullPost} key={fullPost.post.id}/>
-            ))}
-          </div>
-
-
+          <Feed />
+      
           <UserButton />
 
           <SignedIn>
