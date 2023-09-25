@@ -1,6 +1,5 @@
-import { SignIn } from "@clerk/nextjs";
+
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 import { api } from "~/utils/api";
 
@@ -9,13 +8,10 @@ import type { RouterOutputs } from "~/utils/api";
 import { 
   SignUpButton,
   SignInButton,
-  SignOutButton,
   UserButton,
   useUser,
   SignedIn,
-  ClerkProvider,
   SignedOut,
-  RedirectToSignIn,
 } from "@clerk/nextjs";
 
 import dayjs from "dayjs";
