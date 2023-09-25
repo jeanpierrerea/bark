@@ -7,6 +7,7 @@ import { api } from "~/utils/api";
 import type { RouterOutputs } from "~/utils/api";
 import { 
   SignUpButton,
+  SignOutButton,
   SignInButton,
   UserButton,
   useUser,
@@ -83,7 +84,7 @@ type PostWithUser = RouterOutputs["posts"]["getAll"][number];
 const PostView = (props: PostWithUser) => {
   const { post, author } = props;
   return (
-    <div key={post.id} className="flex p-8 border-b border-slate-400 p-4 gap-3">
+    <div key={post.id} className="flex p-8 gap-3">
       <Image src={author.profilePicture} 
       alt={`@${author.username}`}
       className="h-14 w-14 rounded-full"
@@ -137,9 +138,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex h-screen justify-center">
-        <div className="h-full w-full md:max-w-2xl border-x border-slate-400">
-
-          <div className="border-b border-slate-400 p-4">
+        <div className="h-full w-full md:max-w-2xl overflow-y-scroll">
+          <div className="p-4">
             {!isSignedIn && (
               <div className="flex justify-center">
                 <SignInButton /> 
@@ -147,17 +147,19 @@ export default function Home() {
             )}
             {isSignedIn && <CreatePostWizard />}
           </div>
-
           <Feed />
-      
-          <UserButton />
 
-          <SignedIn>
-          </SignedIn>
-
-          <SignedOut>
-            <SignUpButton />
-          </SignedOut>
+          <div className="flex items-center justify-between p-4">
+            <SignedIn>
+              <a href="https://github.com/jeanpierrerea/bark">GitHub</a>
+              <div className="flex items-center justify-end gap-2 p-4">
+                <UserButton />
+              </div>
+            </SignedIn>
+          </div>
+            <SignedOut>
+              <SignUpButton />
+            </SignedOut>
         </div>
       </main>
     </>

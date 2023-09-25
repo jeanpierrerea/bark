@@ -3,5 +3,25 @@
 @tailwind utilities;
 
 body {
-    @apply bg-slate-800 text-slate-100;
+    @apply text-slate-100 bg-zinc-800;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+  
+::-webkit-scrollbar-track {
+    @apply bg-zinc-800;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300;
+
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-100
 }
