@@ -51,7 +51,7 @@ const CreatePostWizard = () => {
         className="h-16 w-16 rounded-full"
         width={56}
         height={56} />
-       <input placeholder="Bark bark bark!" className="grow bg-transparent"
+       <input placeholder="Enter some barks here! Bark bark bark!" className="grow bg-transparent text-zinc-300"
        type="text"
        value={input}
        onChange={(e) => setInput(e.target.value)}
@@ -91,7 +91,7 @@ const PostView = (props: PostWithUser) => {
       width={56}
       height={56} />
       <div className="flex flex-col">
-        <div className="flex text-slate-400 gap-1">
+        <div className="flex text-zinc-400 gap-1">
           <span>{`@${author.username}`}</span>
           <span className="font-thin">{` · ${dayjs(
             post.createdAt
@@ -156,10 +156,11 @@ export default function Home() {
                 <UserButton />
               </div>
             </SignedIn>
-          </div>
+
             <SignedOut>
-              <SignUpButton />
-            </SignedOut>
+              <a href="https://github.com/jeanpierrerea/bark">GitHub</a>
+            </SignedOut>          
+          </div>
         </div>
       </main>
     </>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply text-slate-100 bg-zinc-800;
+    @apply text-zinc-100 bg-zinc-800;
 }
 
 /* width */
